@@ -7,7 +7,7 @@ from mcp_agent.workflows.llm.augmented_llm_openai import OpenAIAugmentedLLM
 
 app = MCPApp(name="news_agent")
 
-async def usage():
+async def example_usage():
     async with app.run() as mcp_agent_app:
         logger = mcp_agent_app.logger
         # This agent can read the filesystem or fetch URLs
@@ -15,7 +15,7 @@ async def usage():
             name="news_agent",
             instruction="""You can read local files or fetch URLs or search the web.
                 Return the requested information when asked.""",
-            server_names=["filesystem", "ddgsearch"], # MCP servers this Agent can use
+            server_names=["filesystem", "baidu-search"], # MCP servers this Agent can use
         )
 
         async with news_agent:
@@ -27,10 +27,10 @@ async def usage():
             llm = await news_agent.attach_llm(OpenAIAugmentedLLM)
 
             # This will perform a file lookup and read using the filesystem server
-            result = await llm.generate_str(
-            message="Show me what's in README.md verbatim"
-            )
-            logger.info(f"README.md contents: {result}")
+            # result = await llm.generate_str(
+            # message="查看data_1.csv和data_2.csv文件，找出寰宇智能的营业范围"
+            # )
+            # logger.info(f"寰宇智能的营业范围: {result}")
 
             # # Uses the fetch server to fetch the content from URL
             # result = await llm.generate_str(

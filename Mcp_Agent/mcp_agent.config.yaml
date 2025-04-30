@@ -20,11 +20,11 @@ mcp:
         [
           "-y",
           "@modelcontextprotocol/server-filesystem",
-          "/Users/jing/Desktop/coding.../Agent/wechat-agent/",
+          "/Users/jing/Desktop/coding.../Agent/wechat-agent/Mcp_Agent/docs",
         ]
-    ddgsearch:
+    baidu-search:
       command: "uvx"
-      args: ["duckduckgo-mcp-server"]
+      args: ["baidu-mcp-server"]
 
 openai:
   # Secrets (API keys, etc.) are stored in an mcp_agent.secrets.yaml file which can be gitignored
